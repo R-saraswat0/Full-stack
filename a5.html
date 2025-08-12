@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Form with Labels</title>
+</head>
+<body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br> <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br> <br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br> <br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select><br>
+
+        <label for="bio">Bio:</label><br>   
+        <textarea id="bio" name="bio"></textarea><br>
+
+        <fieldset>
+            <legend>Hobbies:</legend>
+            <label for="reading">
+                <input type="checkbox" id="reading" name="hobbies" value="reading"> Reading
+            </label>
+            <label for="traveling">
+                <input type="checkbox" id="traveling" name="hobbies" value="traveling"> Traveling
+            </label>
+            <label for="gaming">
+                <input type="checkbox" id="gaming" name="hobbies" value="gaming"> Gaming
+            </label>
+        </fieldset><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
