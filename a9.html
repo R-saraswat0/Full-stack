@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pokémon World Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html"><img src="data:image/png;base64,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" alt="Pokémon Logo" width="200"></a>
+    <h1>Welcome to the World of Pokémon</h1>
+    <p>Your one-stop blog for Pokémon adventures, regions, and Ash's legendary journey.</p>
+    <nav>
+      <a href="#home">Home</a> |
+      <a href="#regions">Regions</a> |
+      <a href="#ash">Ash's Journey</a> |
+      <a href="#gallery">Gallery</a> |
+      <a href="#about">About</a>
+    </nav>
+    <hr>
+  </header>
+
+  <!-- HOME SECTION -->
+  <section id="home">
+    <h2>Discover a World Full of Adventure</h2>
+    <p>
+      Pokémon is a world full of vibrant creatures with unique powers. Trainers embark on epic journeys to 
+      catch Pokémon, battle Gym Leaders, and become Champions. The franchise has grown into one of the most 
+      popular universes with <strong>anime series, movies, games, trading cards, and fan communities</strong>.
+    </p>
+
+    <figure>
+      <img src="https://i.ytimg.com/vi/2EUl5h7jDSM/maxresdefault.jpg" alt="Pokémon World Map" width="600">
+      <figcaption>Map of Pokémon regions around the world.</figcaption>
+    </figure>
+
+    <p>
+      Learn more about Pokémon from trusted sources:
+    </p>
+    <ul>
+      <li><a href="https://bulbapedia.bulbagarden.net/" target="_blank">Bulbapedia – Pokémon Encyclopedia</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon" target="_blank">Wikipedia – Pokémon Overview</a></li>
+      <li><a href="https://in.pinterest.com/search/pins/?q=pokemon" target="_blank">Pinterest – Pokémon Fan Art</a></li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- REGIONS SECTION -->
+  <section id="regions">
+    <h2>Explore All Pokémon Regions</h2>
+    <p>Each region offers a unique adventure, culture, and Pokémon to discover:</p>
+
+    <table border="1" cellpadding="6" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Inspired By</th>
+          <th>Starter Pokémon</th>
+          <th>Legendary Mascot</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kanto</td>
+          <td>Japan (Kanto)</td>
+          <td>Bulbasaur, Charmander, Squirtle</td>
+          <td>Mewtwo</td>
+          <td><img src="https://poggers.com/cdn/shop/articles/e71fb228899dd04d8f02cd096d61e351_1778x1000_crop_center.webp?v=1708120507" alt="Kanto" width="150"></td>
+        </tr>
+        <tr>
+          <td>Johto</td>
+          <td>Japan (Kansai)</td>
+          <td>Chikorita, Cyndaquil, Totodile</td>
+          <td>Ho-Oh, Lugia</td>
+          <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2775dda-s5tNQnE0EFj2eMZfdYkLBma7d3A&s" alt="Johto" width="150"></td>
+        </tr>
+        <tr>
+          <td>Hoenn</td>
+          <td>Japan (Kyushu)</td>
+          <td>Treecko, Torchic, Mudkip</td>
+          <td>Kyogre, Groudon, Rayquaza</td>
+          <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Bj5Ff9gw1sTN_rZMNwxzc4vO1aVOgbHCSA&s" alt="Hoenn" width="150"></td>
+        </tr>
+        <tr>
+          <td>Sinnoh</td>
+          <td>Japan (Hokkaido)</td>
+          <td>Turtwig, Chimchar, Piplup</td>
+          <td>Dialga, Palkia, Giratina</td>
+          <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlFOFSQaPTRh7yAgBGioQDkAC-4YIxRyz5dA&s" alt="Sinnoh" width="150"></td>
+        </tr>
+        <tr>
+          <td>Unova</td>
+          <td>New York</td>
+          <td>Snivy, Tepig, Oshawott</td>
+          <td>Reshiram, Zekrom</td>
+          <td><img src="https://i.pinimg.com/736x/9e/06/f9/9e06f9ff804ee1a1ea01a8e062398683.jpg" alt="Unova" width="150"></td>
+        </tr>
+        <tr>
+          <td>Kalos</td>
+          <td>France</td>
+          <td>Chespin, Fennekin, Froakie</td>
+          <td>Xerneas, Yveltal</td>
+          <td><img src="https://static.wikia.nocookie.net/583e44b7-8c01-41a4-b908-c29a376842be/scale-to-width/755" alt="Kalos" width="150"></td>
+        </tr>
+        <tr>
+          <td>Alola</td>
+          <td>Hawaii</td>
+          <td>Rowlet, Litten, Popplio</td>
+          <td>Solgaleo, Lunala</td>
+          <td><img src="https://pokemonblog.com/wp-content/uploads/2025/04/alola_sitting_cuties_plush_pokemon_center.jpg?w=480" alt="Alola" width="150"></td>
+        </tr>
+        <tr>
+          <td>Galar</td>
+          <td>United Kingdom</td>
+          <td>Grookey, Scorbunny, Sobble</td>
+          <td>Zacian, Zamazenta</td>
+          <td><img src="https://poggers.com/cdn/shop/articles/234af40b-e4b1-4e76-bef8-3b412daecc2a_backup_1920x1080_crop_center.webp?v=1750333885" alt="Galar" width="150"></td>
+        </tr>
+        <tr>
+          <td>Paldea</td>
+          <td>Spain</td>
+          <td>Sprigatito, Fuecoco, Quaxly</td>
+          <td>Koraidon, Miraidon</td>
+          <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1VszfPEU4MEeZkLRqTNUaNazyw1AQ9WOHCA&s" alt="Paldea" width="150"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <!-- ASH'S JOURNEY -->
+  <section id="ash">
+    <h2>Ash Ketchum's Legendary Journey</h2>
+    <p>Ash traveled across all regions with Pikachu, becoming <strong>World Champion</strong> after defeating Leon in Galar!</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSboIHlufmPTs6LNP4ylmtLy3FGBfc2U8y5MA&s" alt="Ash and Pikachu" width="400">
+    <ol>
+      <li>Kanto – Began journey, Top 16 at Indigo League</li>
+      <li>Johto – Silver Conference, Top 8</li>
+      <li>Hoenn – Top 8, met May and Max</li>
+      <li>Sinnoh – Defeated Paul, Top 4</li>
+      <li>Unova – New adventures, Top 8</li>
+      <li>Kalos – Runner-up, Ash-Greninja bond</li>
+      <li>Alola – Became Champion</li>
+      <li>Galar – Crowned World Champion</li>
+      <li>Paldea – New era with Liko & Roy</li>
+    </ol>
+  </section>
+
+  <hr>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>Pokémon Gallery</h2>
+    <figure>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuRcDxr6itV5iU0gkEPKN6NwMwH4E0bQhtUA&s" alt="Pikachu" width="200">
+      <figcaption>Pikachu – Ash's loyal partner</figcaption>
+    </figure>
+    <figure>
+      <img src="https://wallpapers.com/images/featured/charizard-pokemon-pictures-z0uot60vcwes3pvk.jpg" alt="Charizard" width="200">
+      <figcaption>Charizard – Powerful and iconic</figcaption>
+    </figure>
+    <figure>
+      <img src="https://preview.redd.it/greninja-fanart-shiny-and-regular-color-v0-yasanuynz09b1.png?width=1080&crop=smart&auto=webp&s=a0a10ff24b0b955a89d0aacfd904959bbdd35c93" alt="Greninja" width="200">
+      <figcaption>Ash-Greninja – Special bond Pokémon</figcaption>
+    </figure>
+    <figure>
+      <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2024/03/mewtwo-pokemon.jpg?q=70&fit=contain&w=1200&h=628&dpr=1" alt="Mewtwo" width="200">
+      <figcaption>Mewtwo – The powerful legend of Kanto</figcaption>
+    </figure>
+    <p>More art on <a href="https://in.pinterest.com/search/pins/?q=pokemon" target="_blank">Pinterest</a>.</p>
+  </section>
+
+  <hr>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About This Blog</h2>
+    <p>This site is built with <strong>pure HTML only</strong>. All images are in the <code>images/</code> folder. External links open trusted sources for Pokémon fans.</p>
+    <ul>
+      <li><a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" target="_blank">Bulbapedia</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon" target="_blank">Wikipedia Pokémon</a></li>
+      <li><a href="https://pokemon.com" target="_blank">Official Pokémon Website</a></li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; Pokémon World Blog | Made with HTML only | Fan-made website for learning purposes.</p>
+  </footer>
+
+</body>
+</html>
