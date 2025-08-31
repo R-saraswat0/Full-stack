@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeVerse - Ultimate Anime Hub 😎✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --neon-purple: #bc13fe;
+            --electric-blue: #0ff0fc;
+            --cherry-pink: #ff6b8b;
+            --neon-yellow: #fff01f;
+            --dark-bg: #0a0820;
+            --darker-bg: #050416;
+            --card-bg: #15132e;
+            --text-light: #ffffff;
+            --text-muted: #b8b5d0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: var(--darker-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            background-image: linear-gradient(to bottom, var(--darker-bg), var(--dark-bg));
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Improved Navigation */
+        nav {
+            background-color: rgba(5, 4, 22, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 5px 15px rgba(188, 19, 254, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 10px var(--neon-yellow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Bangers', cursive;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+            transform: translateY(-3px);
+        }
+        
+        .nav-links a.active {
+            background: linear-gradient(45deg, var(--neon-purple), var(--cherry-pink));
+            color: white;
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.5);
+        }
+        
+        /* Pages */
+        .page {
+            display: none;
+            min-height: 80vh;
+            padding: 40px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-header h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.8rem;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 10px var(--neon-yellow);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--electric-blue);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--neon-purple), var(--cherry-pink));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* Home Page */
+        #home {
+            text-align: center;
+            padding-top: 60px;
+        }
+        
+        .hero {
+            background: rgba(21, 19, 46, 0.8);
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            border: 2px solid var(--electric-blue);
+            box-shadow: 0 0 30px rgba(15, 240, 252, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(188, 19, 254, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 6s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .hero h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 15px var(--neon-yellow);
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--electric-blue);
+            position: relative;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, var(--neon-purple), var(--cherry-pink));
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-family: 'Bangers', cursive;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(188, 19, 254, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(188, 19, 254, 0.6);
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .cta-button:hover::after {
+            opacity: 1;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            width: 280px;
+            border: 2px solid var(--cherry-pink);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 107, 139, 0.3);
+            border-color: var(--electric-blue);
+        }
+        
+        .feature-card i {
+            font-size: 2.8rem;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--cherry-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.6rem;
+            color: var(--neon-yellow);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        /* Characters Page */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .character-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .character-card:hover {
+            transform: scale(1.05);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 25px var(--neon-purple);
+        }
+        
+        .character-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--electric-blue);
+        }
+        
+        .character-info {
+            padding: 20px;
+        }
+        
+        .character-info h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.6rem;
+            color: var(--neon-yellow);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .character-info p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .character-info .quote {
+            color: var(--electric-blue);
+            font-style: italic;
+            margin-top: 10px;
+            display: block;
+        }
+        
+        .view-details {
+            background: transparent;
+            border: 2px solid var(--neon-purple);
+            color: var(--text-light);
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .view-details:hover {
+            background: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+        
+        /* Character Modal */
+        .character-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 4, 22, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--electric-blue);
+            box-shadow: 0 0 40px rgba(15, 240, 252, 0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.8rem;
+            color: white;
+            background: var(--neon-purple);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+            background: var(--cherry-pink);
+        }
+        
+        .modal-body {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .modal-character-header {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-character-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid var(--neon-purple);
+        }
+        
+        .modal-character-info h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.2rem;
+            color: var(--neon-yellow);
+            margin-bottom: 10px;
+        }
+        
+        .modal-character-info p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .character-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .detail-card {
+            background: rgba(188, 19, 254, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--neon-purple);
+        }
+        
+        .detail-card h4 {
+            font-family: 'Bangers', cursive;
+            color: var(--electric-blue);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .detail-card p {
+            color: var(--text-light);
+        }
+        
+        /* Story Timeline Page */
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, var(--neon-purple), var(--electric-blue));
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+        
+        .timeline-item {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 70px;
+        }
+        
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid var(--cherry-pink);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 139, 0.3);
+            border-color: var(--electric-blue);
+        }
+        
+        .timeline-content h3 {
+            font-family: 'Bangers', cursive;
+            color: var(--neon-yellow);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 2px solid var(--electric-blue);
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: var(--neon-purple);
+            border: 3px solid var(--electric-blue);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background: var(--cherry-pink);
+            border: 3px solid var(--electric-blue);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 15px var(--cherry-pink);
+        }
+        
+        /* About Page */
+        .about-content {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid var(--neon-yellow);
+            box-shadow: 0 0 30px rgba(255, 240, 31, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        .about-content h2 {
+            font-family: 'Bangers', cursive;
+            color: var(--neon-purple);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .about-content p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: var(--electric-blue);
+            font-weight: bold;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--cherry-pink));
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(188, 19, 254, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(188, 19, 254, 0.6);
+        }
+        
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links a:hover::after {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(5, 4, 22, 0.95);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 2px solid var(--neon-purple);
+        }
+        
+        footer p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--cherry-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(188, 19, 254, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(188, 19, 254, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .modal-character-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 70px;
+            }
+            
+            .timeline-item:nth-child(odd)::before,
+            .timeline-item:nth-child(even)::before {
+                left: 31px;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .social-links a {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 6px 12px;
+            }
+            
+            .character-img {
+                height: 250px;
+            }
+            
+            .about-content {
+                padding: 25px;
+            }
+            
+            .social-links {
+                gap: 15px;
+            }
+            
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Easter Egg */
+        .easter-egg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 4, 22, 0.98);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            display: none;
+        }
+        
+        .easter-egg-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--neon-yellow);
+            box-shadow: 0 0 40px rgba(255, 240, 31, 0.3);
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .easter-egg-content h3 {
+            font-family: 'Bangers', cursive;
+            color: var(--neon-purple);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .easter-egg-content p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .close-easter {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--cherry-pink));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .close-easter:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-content {
+            text-align: center;
+        }
+        
+        .chibi-character {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite;
+        }
+        
+        .loading-text {
+            font-family: 'Bangers', cursive;
+            color: var(--electric-blue);
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+        
+        .progress-bar {
+            width: 300px;
+            height: 10px;
+            background: var(--card-bg);
+            border-radius: 5px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--neon-purple), var(--cherry-pink));
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Floating Emojis */
+        .floating-emoji {
+            position: fixed;
+            font-size: 2rem;
+            z-index: 99;
+            pointer-events: none;
+            animation: float 5s ease-in forwards;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="chibi-character">👾</div>
+            <div class="loading-text">Loading Awesomeness...</div>
+            <div class="progress-bar">
+                <div class="progress" id="loadingProgress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <span>AnimeVerse</span> 😎
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-page="home">Home 🏠</a></li>
+                <li><a href="#" class="nav-link" data-page="characters">Characters 🧑‍🎨</a></li>
+                <li><a href="#" class="nav-link" data-page="story">Story Timeline 📜</a></li>
+                <li><a href="#" class="nav-link" data-page="about">About ℹ️</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h1>Anime Duniya Mein Swag Ke Saath Swagat! 😎✨</h1>
+                <p>Yahan milta hai sabse zabardast anime content, bina paise lagaye! 🎌🔥</p>
+                <button class="cta-button bounce" id="exploreButton">Start Exploring Now! 🚀</button>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Epic Characters</h3>
+                    <p>Jaano apne favorite anime heroes ke baare mein! 💪</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-history"></i>
+                    <h3>Story Timeline</h3>
+                    <p>Poori story ek hi jagah! 📜</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-laugh-beam"></i>
+                    <h3>Masti Mazaa</h3>
+                    <p>Hinglish mein jokes aur fun! 😂</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Characters Page -->
+    <div id="characters" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Anime Ke Asli Heroes 🦸‍♂️🦸‍♀️</h2>
+                <p>Inki powers dekh ke dimaag ka bulb jal jayega! 💡😵</p>
+            </div>
+            
+            <div class="characters-grid">
+                <!-- Character 1 -->
+                <div class="character-card">
+                    <img src="https://www.shutterstock.com/image-photo/naruto-uzumaki-kyubii-260nw-2500031293.jpg" alt="Naruto" class="character-img">
+                    <div class="character-info">
+                        <h3>Naruto Uzumaki</h3>
+                        <p>"Believe it! 🍥"</p>
+                        <p>Hokage banne wala ladka 😎</p>
+                        <span class="quote">"I'm never going back on my word! That's my nindo!"</span>
+                        <button class="view-details" data-character="naruto">Full Details</button>
+                    </div>
+                </div>
+                
+                <!-- Character 2 -->
+                <div class="character-card">
+                    <img src="https://i.pinimg.com/736x/0e/61/be/0e61be829ff8b518a442e7d92a133bd0.jpg" alt="Goku" class="character-img">
+                    <div class="character-info">
+                        <h3>Goku</h3>
+                        <p>"Power level over 9000! 💥"</p>
+                        <p>Sabse strong Saiyan 🐉</p>
+                        <span class="quote">"There's always someone stronger than you!"</span>
+                        <button class="view-details" data-character="goku">Full Details</button>
+                    </div>
+                </div>
+                
+                <!-- Character 3 -->
+                <div class="character-card">
+                    <img src="https://wallpapers.com/images/featured/luffy-pictures-22osajj9ivjfcm49.jpg" alt="Luffy" class="character-img">
+                    <div class="character-info">
+                        <h3>Luffy</h3>
+                        <p>"I'm gonna be King of Pirates! 🏴‍☠️"</p>
+                        <p>Rubber band jaisa body 😂</p>
+                        <span class="quote">"I don't want to conquer anything. I just think the guy with the most freedom is the Pirate King!"</span>
+                        <button class="view-details" data-character="luffy">Full Details</button>
+                    </div>
+                </div>
+                
+                <!-- Character 4 -->
+                <div class="character-card">
+                    <img src="https://i.pinimg.com/736x/3a/37/50/3a37503f0ced98a450811d3b6cd6ad57.jpg" alt="Levi" class="character-img">
+                    <div class="character-info">
+                        <h3>Levi Ackerman</h3>
+                        <p>"Clean freak soldier 🧹"</p>
+                        <p>Titan slayer pro max 🔥</p>
+                        <span class="quote">"Decide for yourself what to believe."</span>
+                        <button class="view-details" data-character="levi">Full Details</button>
+                    </div>
+                </div>
+                
+                <!-- Character 5 -->
+                <div class="character-card">
+                    <img src="https://w0.peakpx.com/wallpaper/923/87/HD-wallpaper-kimetsu-no-yaiba-frontal-view-nezuko-kamado-nezuko-thumbnail.jpg" alt="Nezuko" class="character-img">
+                    <div class="character-info">
+                        <h3>Nezuko Kamado</h3>
+                        <p>"Kawaii demon girl 👹"</p>
+                        <p>Bhai ki sabse pyari behen ❤️</p>
+                        <span class="quote">*Muffled sounds* (Because of the bamboo muzzle)</span>
+                        <button class="view-details" data-character="nezuko">Full Details</button>
+                    </div>
+                </div>
+                
+                <!-- Character 6 -->
+                <div class="character-card">
+                    <img src="https://pbs.twimg.com/media/FsvoGO2acAAwc_0.jpg:large" alt="Itachi" class="character-img">
+                    <div class="character-info">
+                        <h3>Itachi Uchiha</h3>
+                        <p>"Bhai ke liye duniya se lad gaya 😭🔥"</p>
+                        <p>Secretly soft-hearted ❤️</p>
+                        <span class="quote">"People's lives don't end when they die. It ends when they lose faith."</span>
+                        <button class="view-details" data-character="itachi">Full Details</button>
+                    </div>
+                </div>
+                
+                <!-- Character 7 -->
+                <div class="character-card">
+                    <img src="https://wallpapers.com/images/featured/zoro-pictures-8nv0c0nb7rijf6z2.jpg" alt="Zoro" class="character-img">
+                    <div class="character-info">
+                        <h3>Roronoa Zoro</h3>
+                        <p>"Three-sword style expert ⚔️"</p>
+                        <p>World's worst sense of direction 🗺️</p>
+                        <span class="quote">"I don't care about the world's laws! I have my own!"</span>
+                        <button class="view-details" data-character="zoro">Full Details</button>
+                    </div>
+                </div>
+                
+                <!-- Character 8 -->
+                <div class="character-card">
+                    <img src="https://w0.peakpx.com/wallpaper/423/299/HD-wallpaper-gojo-satoru-top-25-best-gojo-satoru-background.jpg" alt="Gojo" class="character-img">
+                    <div class="character-info">
+                        <h3>Satoru Gojo</h3>
+                        <p>"The strongest sorcerer 🕶️"</p>
+                        <p>Too cool for school 😎</p>
+                        <span class="quote">"Throughout Heaven and Earth, I alone am the honored one."</span>
+                        <button class="view-details" data-character="gojo">Full Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Character Modal -->
+    <div class="character-modal" id="characterModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be inserted by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Timeline Page -->
+    <div id="story" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Anime Ki Poori Kahani 📜⏳</h2>
+                <p>Jab tak story complete nahi hoti, tab tak hum chodte nahi! 😤</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Beginning Arc</h3>
+                            <p>Jab hero chota tha aur dreams bade the! 🌟</p>
+                            <p>Sabse pehle hero ki basic backstory, kyun wo aisa hai, aur uske dreams kya hain.</p>
+                            <img src="https://images.unsplash.com/photo-1461632830798-3b3036d2c453?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Beginning Arc">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Training Arc</h3>
+                            <p>Jab hero ko pata chala ki bas thodi si mehnat aur karni hai! 💪</p>
+                            <p>Hero apni weaknesses overcome karta hai, naye moves seekhta hai, aur power-up karta hai.</p>
+                            <img src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Training Arc">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>First Major Battle</h3>
+                            <p>Jab hero ne pehli baar apna asli power dikhaya! 💥</p>
+                            <p>Pehla bada villain introduce hota hai, aur hero apne naye skills test karta hai.</p>
+                            <img src="https://images.unsplash.com/photo-1598880940080-ff0a0324bfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="First Battle">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Tournament Arc</h3>
+                            <p>Jab sabki aapas mein ladai hui, kyuki kyun nahi? 🏆</p>
+                            <p>Hero aur uske friends ek tournament mein participate karte hain, jahan naye rivals milte hain.</p>
+                            <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tournament Arc">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Revelation Arc</h3>
+                            <p>Jab pata chala ki asli villain toh koi aur hai! 😱</p>
+                            <p>Story twist aata hai, asli villain reveal hota hai, aur hero ki duniya ulat jati hai.</p>
+                            <img src="https://images.unsplash.com/photo-1626600209956-1b3d3f4cbd5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Revelation Arc">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Pain Arc</h3>
+                            <p>Jab sab ne apne dard ke geet gaaye 🥲🎶</p>
+                            <p>Hero emotional trauma se guzarta hai, aur uski resolve test hoti hai.</p>
+                            <img src="https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pain Arc">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 7 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Final Battle</h3>
+                            <p>Jab hero ne 10 episode mein 5 minute ki fight kari! ⚔️</p>
+                            <p>Hero aur uske friends final villain ko defeat karne ke liye apni puri strength use karte hain.</p>
+                            <img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Final Battle">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 8 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Aftermath</h3>
+                            <p>Jab sab theek ho gaya, par ab kya? 🤔</p>
+                            <p>Villain defeat hone ke baad duniya ka kya hota hai, aur hero ka future kya hai.</p>
+                            <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Aftermath">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="container">
+            <div class="about-content">
+                <h2>About This Website ℹ️</h2>
+                <p>Hey there, anime lover! 🙋‍♂️🙋‍♀️</p>
+                <p>Yeh website bani hai pure <span class="highlight">pyaar aur junoon</span> se, bina kisi corporate funding ke! 😂</p>
+                <p>Hum chahte hain ki har ek anime fan ko mile ek aisa platform jahan wo apne favorite characters ke baare mein jaankari le sake, story timeline dekh sake, aur thoda has bhi sake! 😄</p>
+                <p><span class="highlight">Made with ❤️ and thodi si coding mehnat</span> 💻☕ (bahut sari coffee pi pi ke banayi hai!)</p>
+                <p>Agar tumhe yeh website pasand aayi toh zarur batana! Nahi pasand aayi toh bhi batana, par thoda politely please! 😅</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button id="easter-egg-btn" class="cta-button">Click me for a surprise! 🥷✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 AnimeVerse - Sab kuch hai yahan! 😎✨</p>
+            <p>Disclaimer: Hum kisi anime studio se affiliated nahi hain, bas fans hain! 🙏</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Easter Egg -->
+    <div class="easter-egg" id="easterEgg">
+        <div class="easter-egg-content">
+            <h3>Congratulations! 🎉</h3>
+            <p>You found the secret easter egg! 🥚</p>
+            <p>You're a true anime fan! Here's a virtual high-five! 🙌</p>
+            <button class="close-easter" id="closeEaster">Maza aa gaya! 😄</button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingProgress = document.getElementById('loadingProgress');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const exploreButton = document.getElementById('exploreButton');
+        const characterButtons = document.querySelectorAll('.view-details');
+        const characterModal = document.getElementById('characterModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalBody = document.getElementById('modalBody');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        const easterEggBtn = document.getElementById('easter-egg-btn');
+        const easterEgg = document.getElementById('easterEgg');
+        const closeEaster = document.getElementById('closeEaster');
+
+        // Character Data
+        const characterData = {
+            naruto: {
+                name: "Naruto Uzumaki",
+                image: "https://images.unsplash.com/photo-1633354931133-27cae285e010?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "I'm never going back on my word! That's my nindo!",
+                description: "Konoha gaon ka Number One surprising ninja! Jinchuriki of Nine-Tails.",
+                details: {
+                    "Anime": "Naruto",
+                    "Power": "Rasengan, Shadow Clones, Sage Mode",
+                    "Dream": "To become Hokage",
+                    "Favorite Food": "Ramen Ichiraku",
+                    "Catchphrase": "Believe it!"
+                }
+            },
+            goku: {
+                name: "Son Goku",
+                image: "https://images.unsplash.com/photo-1541562232579-512a21360020?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "There's always someone stronger than you!",
+                description: "The Saiyan from Earth who protects it from all threats. Loves to fight strong opponents.",
+                details: {
+                    "Anime": "Dragon Ball",
+                    "Power": "Kamehameha, Super Saiyan, Ultra Instinct",
+                    "Dream": "To become stronger",
+                    "Favorite Food": "Anything edible",
+                    "Catchphrase": "It's over 9000!"
+                }
+            },
+            luffy: {
+                name: "Monkey D. Luffy",
+                image: "https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "I don't want to conquer anything. I just think the guy with the most freedom is the Pirate King!",
+                description: "Rubber man and captain of the Straw Hat Pirates. Ate the Gomu Gomu no Mi devil fruit.",
+                details: {
+                    "Anime": "One Piece",
+                    "Power": "Gear Second, Gear Third, Gear Fourth",
+                    "Dream": "To become King of the Pirates",
+                    "Favorite Food": "Meat",
+                    "Catchphrase": "I'm gonna be King of the Pirates!"
+                }
+            },
+            levi: {
+                name: "Levi Ackerman",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "Decide for yourself what to believe.",
+                description: "Humanity's strongest soldier. Captain of the Survey Corps. Known for his cleanliness and combat skills.",
+                details: {
+                    "Anime": "Attack on Titan",
+                    "Power": "Omni-Directional Mobility Gear, Supreme Swordsmanship",
+                    "Role": "Captain of the Survey Corps",
+                    "Favorite Thing": "Cleanliness",
+                    "Title": "Humanity's Strongest Soldier"
+                }
+            },
+            nezuko: {
+                name: "Nezuko Kamado",
+                image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "*Muffled sounds* (Because of the bamboo muzzle)",
+                description: "A demon who still retains her human emotions. Younger sister of Tanjiro Kamado.",
+                details: {
+                    "Anime": "Demon Slayer",
+                    "Power": "Blood Demon Art, Size Manipulation",
+                    "Status": "Demon",
+                    "Special Ability": "Sleeping for long periods",
+                    "Relationship": "Tanjiro's younger sister"
+                }
+            },
+            itachi: {
+                name: "Itachi Uchiha",
+                image: "https://images.unsplash.com/photo-1501425359013-96058e2b9687?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "People's lives don't end when they die. It ends when they lose faith.",
+                description: "Former ANBU Captain. Sacrificed everything for his village and little brother.",
+                details: {
+                    "Anime": "Naruto",
+                    "Power": "Mangekyo Sharingan, Tsukuyomi, Amaterasu",
+                    "Role": "Former ANBU Captain",
+                    "Motivation": "Protect Konoha and Sasuke",
+                    "Title": "The Ghost of the Uchiha"
+                }
+            },
+            zoro: {
+                name: "Roronoa Zoro",
+                image: "https://images.unsplash.com/photo-1570374312413-483151f5c2de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "I don't care about the world's laws! I have my own!",
+                description: "Swordsman of the Straw Hat Pirates. Uses three swords style. Dreams of becoming the world's greatest swordsman.",
+                details: {
+                    "Anime": "One Piece",
+                    "Power": "Three Sword Style, Haki",
+                    "Dream": "World's Greatest Swordsman",
+                    "Weakness": "Gets lost easily",
+                    "Swords": "Wado Ichimonji, Sandai Kitetsu, Enma"
+                }
+            },
+            gojo: {
+                name: "Satoru Gojo",
+                image: "https://images.unsplash.com/photo-1620961377685-c712c2c18a33?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                quote: "Throughout Heaven and Earth, I alone am the honored one.",
+                description: "The strongest Jujutsu sorcerer. Teacher at Tokyo Jujutsu High. Member of the Gojo Clan.",
+                details: {
+                    "Anime": "Jujutsu Kaisen",
+                    "Power": "Limitless, Six Eyes, Domain Expansion",
+                    "Role": "Teacher at Tokyo Jujutsu High",
+                    "Status": "The Strongest Sorcerer",
+                    "Special Feature": "Blindfold/Glasses"
+                }
+            }
+        };
+
+        // Simulate loading progress
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+            progress += Math.random() * 15;
+            loadingProgress.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }, 500);
+            }
+        }, 200);
+
+        // Navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                
+                // Update active nav link
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show the selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Explore button
+        exploreButton.addEventListener('click', () => {
+            // Update active nav link
+            navLinks.forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            document.querySelector('[data-page="characters"]').classList.add('active');
+            
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show characters page
+            document.getElementById('characters').classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Character modal
+        characterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const characterId = button.getAttribute('data-character');
+                const character = characterData[characterId];
+                
+                if (character) {
+                    // Create modal content
+                    let detailsHTML = '';
+                    for (const [key, value] of Object.entries(character.details)) {
+                        detailsHTML += `
+                            <div class="detail-card">
+                                <h4>${key}</h4>
+                                <p>${value}</p>
+                            </div>
+                        `;
+                    }
+                    
+                    modalBody.innerHTML = `
+                        <div class="modal-character-header">
+                            <img src="${character.image}" alt="${character.name}" class="modal-character-img">
+                            <div class="modal-character-info">
+                                <h3>${character.name}</h3>
+                                <p>"${character.quote}"</p>
+                                <p>${character.description}</p>
+                            </div>
+                        </div>
+                        <div class="character-details">
+                            ${detailsHTML}
+                        </div>
+                    `;
+                    
+                    // Show modal
+                    characterModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            characterModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal if clicked outside
+        window.addEventListener('click', (e) => {
+            if (e.target === characterModal) {
+                characterModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Scroll to top button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('active');
+            } else {
+                scrollToTopBtn.classList.remove('active');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Easter Egg
+        easterEggBtn.addEventListener('click', () => {
+            easterEgg.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeEaster.addEventListener('click', () => {
+            easterEgg.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Floating emojis on scroll
+        const emojis = ['😎', '🔥', '✨', '🎌', '⚡', '❤️', '🍥', '⚔️', '🏆', '🎉'];
+        
+        window.addEventListener('scroll', () => {
+            // Only create emojis occasionally
+            if (Math.random() > 0.97) {
+                createFloatingEmoji();
+            }
+        });
+        
+        function createFloatingEmoji() {
+            const emoji = document.createElement('div');
+            emoji.className = 'floating-emoji';
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = `${Math.random() * 90 + 5}%`;
+            emoji.style.fontSize = `${Math.random() * 2 + 1}rem`;
+            
+            document.body.appendChild(emoji);
+            
+            // Remove emoji after animation completes
+            setTimeout(() => {
+                document.body.removeChild(emoji);
+            }, 5000);
+        }
+
+        // Bounce animation for CTA button
+        setInterval(() => {
+            exploreButton.classList.toggle('bounce');
+        }, 4000);
+    </script>
+</body>
+</html>

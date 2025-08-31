@@ -1,44 +1,93 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Form with Labels</title>
+  <meta charset="UTF-8">
+  <title>Simple Table with Lists</title>
 </head>
 <body>
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br> <br>
+  <h2>Simple Table with Ordered & Unordered Lists</h2>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br> <br>
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age"><br> <br>
-
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender">
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-        </select><br>
-
-        <label for="bio">Bio:</label><br>   
-        <textarea id="bio" name="bio"></textarea><br>
-
-        <fieldset>
-            <legend>Hobbies:</legend>
-            <label for="reading">
-                <input type="checkbox" id="reading" name="hobbies" value="reading"> Reading
-            </label>
-            <label for="traveling">
-                <input type="checkbox" id="traveling" name="hobbies" value="traveling"> Traveling
-            </label>
-            <label for="gaming">
-                <input type="checkbox" id="gaming" name="hobbies" value="gaming"> Gaming
-            </label>
-        </fieldset><br>
-
-        <input type="submit" value="Submit">
-    </form>
+  <table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+      <th>Fruits</th>
+      <th>Countries</th>
+      <th>Subjects</th>
+      <th>Cars</th>
+    </tr>
+    <tr>
+      <td>
+        <ol type="A">
+          <li>Apple</li>
+          <li>Banana</li>
+          <li>Mango</li>
+          <li>Orange</li>
+        </ol>
+      </td>
+      <td>
+        <ol type="I">
+          <li>India</li>
+          <li>USA</li>
+          <li>Japan</li>
+          <li>Germany</li>
+        </ol>
+      </td>
+      <td>
+        <ol type="a">
+          <li>Math</li>
+          <li>Science</li>
+          <li>History</li>
+          <li>English</li>
+        </ol>
+      </td>
+      <td>
+        <ol type="i">
+          <li>Tesla</li>
+          <li>BMW</li>
+          <li>Audi</li>
+          <li>Mercedes</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <th>Colors</th>
+      <th>Sports</th>
+      <th>Animals</th>
+      <th>Anime</th>
+    </tr>
+    <tr>
+      <td>
+        <ul type="disc">
+          <li>Red</li>
+          <li>Blue</li>
+          <li>Green</li>
+          <li>Yellow</li>
+        </ul>
+      </td>
+      <td>
+        <ul type="circle">
+          <li>Cricket</li>
+          <li>Football</li>
+          <li>Basketball</li>
+          <li>Tennis</li>
+        </ul>
+      </td>
+      <td>
+        <ul type="square">
+          <li>Dog</li>
+          <li>Cat</li>
+          <li>Lion</li>
+          <li>Elephant</li>
+        </ul>
+      </td>
+      <td>
+        <ul type="disc">
+          <li>Naruto</li>
+          <li>Demon Slayer</li>
+          <li>Attack on Titan</li>
+          <li>One Piece</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
